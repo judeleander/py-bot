@@ -2,17 +2,16 @@ import sys
 import spacy
 from spacy.matcher import Matcher
 
-nlp = spacy.load("en_core_web_sm")
-matcher = Matcher(nlp.vocab)
+# nlp = spacy.load("en_core_web_sm")
+# matcher = Matcher(nlp.vocab)
 
-# Configurations:
-matcher.add("greet", None, [{"LOWER": "hello"}],
-                            [{"LOWER": "hi"}],
-                            [{"LOWER": "hey"}],
-                            [{"LOWER": "hai"}])
+# matcher.add("greet", None, [{"LOWER": "hello"}],
+#                             [{"LOWER": "hi"}],
+#                             [{"LOWER": "hey"}],
+#                             [{"LOWER": "hai"}])
 
-matcher.add("product", None, [{"LOWER": "ej2"}],
-                            [{"LOWER": "essential"}, {"LOWER": "js"}])
+# matcher.add("product", None, [{"LOWER": "ej2"}],
+#                             [{"LOWER": "essential"}, {"LOWER": "js"}])
 
 
 responses = {
@@ -23,16 +22,17 @@ responses = {
 
 # Pattern Matcher
 def predict(query):
-    resp = ''
-    doc = nlp(query)
-    matches = matcher(doc)
-    if (len(matches) == 0):
-        print(responses["default"])
-        resp = responses["default"] 
-    for match_id, start, end in matches:
-        string_id = nlp.vocab.strings[match_id]  # Get string representation
-        span = doc[start:end]  # The matched span
-        resp = "Intent: " + string_id + "\n"
-        cur_resp = responses[string_id] + (span.text if string_id == "product" else "")
-        resp = resp + "\n" + cur_resp
-    return resp
+    return "You said " + query
+    # resp = ''
+    # doc = nlp(query)
+    # matches = matcher(doc)
+    # if (len(matches) == 0):
+    #     print(responses["default"])
+    #     resp = responses["default"] 
+    # for match_id, start, end in matches:
+    #     string_id = nlp.vocab.strings[match_id]  # Get string representation
+    #     span = doc[start:end]  # The matched span
+    #     resp = "Intent: " + string_id + "\n"
+    #     cur_resp = responses[string_id] + (span.text if string_id == "product" else "")
+    #     resp = resp + "\n" + cur_resp
+    # return resp
