@@ -1,0 +1,27 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body": [
+      {
+        "type": "Image",
+        "url": "https://cdn.syncfusion.com/content/images/Logo/Logo_150dpi.png"
+      },
+      {
+        "type": "TextBlock",
+        "spacing": "medium",
+        "size": "default",
+        "weight": "bolder",
+        "text": "Syncfusion Chat Bot at your service....!!!!",
+        "wrap": true,
+        "maxLines": 0
+      },
+      {
+        "type": "TextBlock",
+        "spacing": "medium",
+        "text": "What can I help you with today...?",
+        "wrap": true,
+        "maxLines": 0
+      }
+    ]
+  }
