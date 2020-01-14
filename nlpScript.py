@@ -5,7 +5,7 @@ from spacy.matcher import Matcher
 nlp = spacy.load("en_core_web_sm")
 matcher = Matcher(nlp.vocab)
 
-Configurations:
+# Configurations:
 matcher.add("greet", None, [{"LOWER": "hello"}],
                             [{"LOWER": "hi"}],
                             [{"LOWER": "hey"}],
